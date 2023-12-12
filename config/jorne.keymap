@@ -1,11 +1,8 @@
-
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
-
-
 /* THIS FILE WAS GENERATED!
  *
  * This file was generated automatically. You may or may not want to
@@ -13,11 +10,12 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 &caps_word {
-  continue-list = <UNDERSCORE MINUS>;
+    continue-list = <UNDERSCORE MINUS>;
 };
 
 &lt {
@@ -27,98 +25,119 @@
 
 / {
     combos {
-      compatible = "zmk,combos";
+        compatible = "zmk,combos";
 
-      combo_caps_word {
-        timeout-ms = <50>;
-        key-positions = <13 16>;
-        bindings = <&caps_word>;
-        layers = <0 1>;
-      };
+        combo_caps_word {
+            timeout-ms = <50>;
+            key-positions = <18 21>;
+            bindings = <&caps_word>;
+            layers = <0 1>;
+        };
     };
 
     behaviors {
-      rhm: rhm {
-           compatible = "zmk,behavior-hold-tap";
-           label = "RHM";
-           bindings = <&kp>, <&kp>;
+        rhm: rhm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RHM";
+            bindings = <&kp>, <&kp>;
 
-           #binding-cells = <2>;
-           flavor = "balanced";
-           tapping-term-ms = <280>;
-           quick-tap-ms = <175>;
-           require-prior-idle-ms = <125>;
-           hold-trigger-on-release;
-           hold-trigger-key-positions = <0 10 11 13 14 20 21 22 23 24 30 31 4 3 2 12 1>;
-       };
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <0 14 30 31 4 3 2 1 19 17 18 5 6 16 29 28 15 27 26 38 40 39>;
+        };
 
-      lhm: lhm {
-          compatible = "zmk,behavior-hold-tap";
-          label = "LHM";
-          bindings = <&kp>, <&kp>;
+        lhm: lhm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LHM";
+            bindings = <&kp>, <&kp>;
 
-          #binding-cells = <2>;
-          tapping-term-ms = <280>;
-          quick-tap-ms = <175>;
-          require-prior-idle-ms = <125>;
-          hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>;
-          hold-trigger-on-release;
-          flavor = "balanced";
-      };
-      dqmark: dot_qmark {
-        compatible = "zmk,behavior-mod-morph";
-        label = "DOT_QMARK";
-        #binding-cells = <0>;
-        bindings = <&kp DOT>, <&kp QMARK>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-      };
-      comexcl: comm_excl {
-        compatible = "zmk,behavior-mod-morph";
-        label = "COMMA_EXCL";
-        #binding-cells = <0>;
-        bindings = <&kp COMMA>, <&kp EXCL>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-      };
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            hold-trigger-key-positions = <7 8 9 25 32 33 20 21 22 23 10 12 11 13 37 24 36 35 34 42 43 41>;
+            hold-trigger-on-release;
+            flavor = "balanced";
+        };
+
+        dqmark: dot_qmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_QMARK";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp QMARK>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        comexcl: comm_excl {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_EXCL";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp EXCL>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
+
     keymap {
         compatible = "zmk,keymap";
 
-
         default_layer {
             bindings = <
- &kp LWIN  &kp GRAVE   &kp Q   &kp W      &kp E            &kp R      &kp T      &kp Y           &kp U      &kp I    &kp O     &kp P       &kp LBKT  &mt RWIN RBKT
-           &kp LCTRL   &kp A   &kp S      &kp D            &kp F      &kp G      &kp H           &kp J      &kp K    &kp L  &kp SEMI  &mt RCTRL SQT
-            &kp LALT   &kp Z   &kp X      &kp C            &kp V      &kp B      &kp N           &kp M  &kp COMMA  &kp DOT  &kp FSLH       &kp BSLH
-                                      &lt 2 TAB  &mt LSHFT SPACE  &lt 1 RET  &lt 1 ESC  &mt RSHFT BSPC  &lt 2 DEL
+&kp LWIN  &kp GRAVE  &kp Q            &kp W        &kp E          &kp R         &kp T      &kp Y        &kp U            &kp I          &kp O        &kp P                 &kp LBKT       &mt RWIN RBKT
+          &kp LCTRL  &lt 2 A          &lhm LALT S  &lhm RSHIFT D  &lhm LCTRL F  &kp G      &kp H        &rhm RCTRL J     &rhm RSHIFT K  &rhm RALT L  &lt 2 SEMI            &mt RCTRL SQT
+          &kp LALT   &lhm LEFT_GUI Z  &kp X        &kp C          &kp V         &kp B      &kp N        &kp M            &kp COMMA      &kp DOT      &rhm RIGHT_GUI SLASH  &kp BSLH
+                                                   &kp TAB        &lt 5 SPACE   &lt 4 RET  &key_repeat  &lt 3 BACKSPACE  &kp DEL
             >;
         };
 
-        layer_lower {
+        sturdy_layer {
             bindings = <
- &trans       &kp UNDER    &kp F1  &kp F2     &kp F3    &kp F4     &kp F5     &kp F6    &kp F7     &kp F8    &kp F9   &kp F10          &kp F11  &mt RGUI F12
-         &mt LCTRL PLUS  &kp EXCL  &kp AT   &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS   &kp STAR  &kp LPAR  &kp RPAR  &mt RCTRL MINUS
-         &mt LALT EQUAL    &kp N1  &kp N2     &kp N3    &kp N4     &kp N5     &kp N6    &kp N7     &kp N8    &kp N9    &kp N0           &trans
-                                           &lt 3 TAB    &trans     &trans     &trans    &trans  &lt 3 DEL
+&trans  &trans  &kp V            &kp M            &kp L              &kp C         &kp P      &kp B        &trans           &kp U               &kp O             &kp Q                 &trans  &trans
+        &trans  &lt 2 S          &lhm LEFT_ALT T  &lhm LEFT_SHIFT R  &lhm LCTRL D  &kp Y      &kp F        &rhm RCTRL N     &rhm RIGHT_SHIFT E  &rhm RIGHT_ALT A  &lt 2 I               &trans
+        &trans  &lhm LEFT_GUI X  &kp K            &kp J              &kp G         &kp W      &kp Z        &kp H            &comexcl            &dqmark           &rhm RIGHT_GUI SLASH  &trans
+                                                  &kp TAB            &lt 5 SPACE   &lt 4 RET  &key_repeat  &lt 3 BACKSPACE  &kp DEL
             >;
         };
 
-        layer_raise {
+        sym_layer {
             bindings = <
- &trans       &kp KP_NUM     &kp KP_SLASH  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS  &kp C_VOL_UP  &kp HOME  &kp PSCRN  &kp PG_UP         &kp SLCK         &kp CAPS  &trans
-         &mt LCTRL EQUAL  &kp KP_MULTIPLY  &kp KP_N4  &kp KP_N5  &kp KP_N6   &kp KP_PLUS    &kp C_MUTE  &kp LEFT     &kp UP  &kp RIGHT          &kp INS  &mt RCTRL K_APP
-                  &trans        &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3    &kp KP_DOT  &kp C_VOL_DN   &kp END   &kp DOWN  &kp PG_DN  &kp PAUSE_BREAK           &trans
-                                                         &trans     &trans     &lt 3 RET     &lt 3 ESC    &trans     &trans
+&trans  &trans  &kp PLUS   &kp AMPS  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RPAR  &kp LT    &trans     &trans           &trans    &trans         &trans  &trans
+        &trans  &kp UNDER  &kp DLLR  &kp PRCNT  &kp CARET             &kp SQT   &kp GT    &kp RCTRL  &kp RIGHT_SHIFT  &kp RALT  &trans         &trans
+        &trans  &kp PIPE   &kp EXCL  &kp AT     &kp HASH              &kp DQT   &kp SEMI  &kp COLON  &trans           &trans    &kp RIGHT_GUI  &trans
+                                     &trans     &trans                &trans    &trans    &trans     &trans
             >;
         };
 
-        layer_adjust {
+        num_layer {
             bindings = <
- &trans  &bootloader         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none  &bootloader  &trans
-          &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0   &bt BT_CLR
-               &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none        &none
-                                                        &trans         &none        &trans        &trans         &none        &trans
+&trans  &trans  &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp P    &trans  &trans     &trans           &trans         &trans         &trans  &trans
+        &trans  &kp MINUS  &kp N4  &kp N5  &kp N6  &kp TAB  &trans  &kp RCTRL  &kp RIGHT_SHIFT  &kp RIGHT_ALT  &trans         &trans
+        &trans  &kp BSLH   &kp N1  &kp N2  &kp N3  &kp W    &trans  &trans     &trans           &trans         &kp RIGHT_GUI  &trans
+                                   &trans  &kp N0  &trans   &trans  &trans     &trans
             >;
         };
 
+        misc_layer {
+            bindings = <
+&trans  &trans  &trans  &trans    &trans     &trans     &trans  &to 0            &to 1              &trans      &trans           &trans         &trans  &trans
+        &trans  &trans  &kp LALT  &kp LSHFT  &kp LCTRL  &trans  &trans           &kp CAPSLOCK       &trans      &kp PSCRN        &trans         &trans
+        &trans  &trans  &trans    &trans     &trans     &trans  &kp K_VOLUME_UP  &kp K_VOLUME_DOWN  &kp K_MUTE  &kp PAUSE_BREAK  &kp RIGHT_GUI  &trans
+                                  &trans     &trans     &trans  &trans           &trans             &trans
+            >;
+        };
+
+        ctl_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &bootloader  &bootloader  &trans        &trans        &trans        &trans        &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &sys_reset   &sys_reset   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans       &trans       &out OUT_TOG  &bt BT_CLR    &trans        &trans        &trans
+                                &trans  &trans  &trans       &trans       &trans        &trans
+            >;
+        };
     };
 };
